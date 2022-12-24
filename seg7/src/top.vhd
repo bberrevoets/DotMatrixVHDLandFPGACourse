@@ -1,22 +1,20 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity top is
-  port (
-    clk : in std_logic;
-    rst_n : in std_logic;
-    segments : out std_logic_vector(6 downto 0);
-    digit_sel : out std_logic
+ENTITY top IS
+  PORT (
+    clk : IN STD_LOGIC;
+    rst_n : IN STD_LOGIC;
+    segments : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+    digit_sel : OUT STD_LOGIC
   );
-end top;
+END top;
 
-architecture rtl of top is
+ARCHITECTURE rtl OF top IS
 
+BEGIN
 
+  segments <= (OTHERS => '0');
 
-begin
-
-  segments <= (others => '0');
-
-end architecture;
+END ARCHITECTURE;
