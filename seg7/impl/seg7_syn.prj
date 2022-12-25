@@ -2,7 +2,7 @@
 #-- Project file seg7_syn.prj
 #project files
 
-add_file -vhdl -lib work "../src/top.vhd"
+add_file -vhdl -lib work "../src/top.vhd" 
 add_file -constraint -lib work "../src/top.sdc"
 #implementation: "seg7_Implmnt"
 impl -add seg7_Implmnt -type fpga
