@@ -3,13 +3,13 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate /top_tb/clk
 add wave -noupdate /top_tb/digit_sel
 add wave -noupdate /top_tb/rst_n
-add wave -noupdate /top_tb/DUT/rst
 add wave -noupdate -radix hexadecimal /top_tb/segments
-add wave -noupdate /top_tb/DUT/shift_reg
-add wave -noupdate /top_tb/DUT/tick
+add wave -noupdate -expand /top_tb/DUT/shift_reg
+add wave -noupdate /top_tb/DUT/rst
 add wave -noupdate -radix decimal /top_tb/DUT/tick_counter
+add wave -noupdate /top_tb/DUT/tick
 add wave -noupdate /top_tb/DUT/digit
-add wave -noupdate -expand /top_tb/DUT/digits
+add wave -noupdate -radix unsigned -childformat {{/top_tb/DUT/alt_counter(1) -radix unsigned} {/top_tb/DUT/alt_counter(0) -radix unsigned}} -subitemconfig {/top_tb/DUT/alt_counter(1) {-radix unsigned} /top_tb/DUT/alt_counter(0) {-radix unsigned}} /top_tb/DUT/alt_counter
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 1
