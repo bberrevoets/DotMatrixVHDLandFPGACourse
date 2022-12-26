@@ -15,6 +15,6 @@ ARCHITECTURE rtl OF top IS
 
 BEGIN
 
-  segments <= (OTHERS => '0');
+  segments <= "1111111";
 
 END ARCHITECTURE;
