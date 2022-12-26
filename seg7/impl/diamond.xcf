@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE		ispXCF	SYSTEM	"IspXCF.dtd" >
-<ispXCF version="3.9.0">
+<ispXCF version="3.12">
 	<Comment></Comment>
 	<Chain>
 		<Comm>JTAG</Comm>
@@ -17,8 +17,9 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File></File>
-			<FileTime>12/12/19 13:49:55</FileTime>
+			<File>E:/FPGA/DotMatrixVHDLandFPGACourse/seg7/impl/seg7_Implmnt/sbt/outputs/bitmap/top_bitmap.hex</File>
+			<FileTime>12/27/22 00:35:08</FileTime>
+			<JedecChecksum>0xAD9D</JedecChecksum>
 			<Operation>SPI Flash Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
@@ -56,15 +57,15 @@
 					<Pos>1</Pos>
 					<Vendor>Micron</Vendor>
 					<Family>SPI Serial Flash</Family>
-					<Name>SPI-N25Q032</Name>
+					<Name>N25Q032</Name>
 					<IDCode>0x16</IDCode>
 					<Package>8-pin VDFPN8</Package>
 					<Operation>SPI Flash Erase,Program,Verify</Operation>
-					<File></File>
+					<File>E:/FPGA/DotMatrixVHDLandFPGACourse/seg7/impl/seg7_Implmnt/sbt/outputs/bitmap/top_bitmap.hex</File>
 					<AddressBase>0x00000000</AddressBase>
 					<EndAddress>0x00010000</EndAddress>
 					<DeviceSize>32</DeviceSize>
-					<DataSize>32300</DataSize>
+					<DataSize>32299</DataSize>
 					<NumberOfDevices>1</NumberOfDevices>
 					<ReInitialize value="FALSE"/>
 				</Device>
