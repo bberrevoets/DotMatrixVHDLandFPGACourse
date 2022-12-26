@@ -13,8 +13,23 @@ END top;
 
 ARCHITECTURE rtl OF top IS
 
+  SIGNAL digit : INTEGER;
+
 BEGIN
 
-  segments <= "1111111";
+  digit <= 7;
+
+  ENCODER_PROC : PROCESS (digit)
+  BEGIN
+    CASE digit IS
+
+      WHEN 8 =>
+        segments <= "1111111";
+
+      WHEN OTHERS =>
+      segments <= "0000000";
+
+    END CASE;
+  END PROCESS;
 
 END ARCHITECTURE;
