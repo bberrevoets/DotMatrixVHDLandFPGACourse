@@ -4,7 +4,3 @@ package constants is
   constant clock_frequency : real := 12.0e6;
 
 end package;
-
-package body constants is
-
-end package body;
