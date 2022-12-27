@@ -26,6 +26,7 @@ begin
         if wr = '1' then
           dout <= din;
         end if;
+
       end if;
     end if;
   end process;
