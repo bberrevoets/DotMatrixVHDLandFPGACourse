@@ -8,6 +8,7 @@ use std.textio.all;
 library dot_matrix;
 library dot_matrix_sim;
 use dot_matrix_sim.sim_constants.all;
+use dot_matrix_sim.sim_subprograms.all;
 
 entity char_buf_tb is
 end char_buf_tb;
@@ -22,7 +23,7 @@ architecture sim of char_buf_tb is
 
 begin
 
-  clk <= not clk after clock_period / 2;
+  gen_clock(clk);
 
   DUT : entity dot_matrix.char_buf(rtl)
     port map(
@@ -36,7 +37,6 @@ begin
   SEQUENCER_PROC : process
     constant all_ones : std_logic_vector(din'range) := (others => '1');
     variable last_din : std_logic_vector(din'range);
-    variable str : line;
   begin
 
     -- Reset strobe
@@ -72,8 +72,7 @@ begin
 
     end loop;
 
-    write(str, string'("Test: OK"));
-    writeline(output, str);
+    print_test_ok;
     finish;
 
   end process;

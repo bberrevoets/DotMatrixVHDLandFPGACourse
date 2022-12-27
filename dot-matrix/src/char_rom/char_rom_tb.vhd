@@ -10,6 +10,7 @@ use dot_matrix.types.all;
 
 library dot_matrix_sim;
 use dot_matrix_sim.sim_constants.all;
+use dot_matrix_sim.sim_subprograms.all;
 
 entity char_rom_tb is
 end char_rom_tb;
@@ -23,7 +24,7 @@ architecture sim of char_rom_tb is
 
 begin
 
-  clk <= not clk after clock_period / 2;
+  gen_clock(clk);
 
   DUT : entity dot_matrix.char_rom(rtl)
     port map(
@@ -33,14 +34,13 @@ begin
     );
 
   PROC_SEQUENCE : process
-    variable str : line;
   begin
     for i in 1 to 10 loop
       wait until rising_edge(clk);
     end loop;
 
-    write(str, string'("Test: Ok"));
-    writeline(output, str);
+    print_test_ok;
+
     finish;
   end process;
 
