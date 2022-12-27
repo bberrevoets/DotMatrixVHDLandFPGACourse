@@ -6,6 +6,8 @@ use std.env.finish;
 use std.textio.all;
 
 library dot_matrix;
+use dot_matrix.types.all;
+
 library dot_matrix_sim;
 use dot_matrix_sim.sim_constants.all;
 
@@ -14,11 +16,32 @@ end char_rom_tb;
 
 architecture sim of char_rom_tb is
 
+  -- DUT Signals
   signal clk : std_logic := '1';
-  signal rst : std_logic := '1';
+  signal addr : char_range;
+  signal dout : matrix_type;
 
 begin
 
-  finish;
+  clk <= not clk after clock_period / 2;
+
+  DUT : entity dot_matrix.char_rom(rtl)
+    port map(
+      clk => clk,
+      addr => addr,
+      dout => dout
+    );
+
+  PROC_SEQUENCE : process
+    variable str : line;
+  begin
+    for i in 1 to 10 loop
+      wait until rising_edge(clk);
+    end loop;
+
+    write(str, string'("Test: Ok"));
+    writeline(output, str);
+    finish;
+  end process;
 
 end architecture;
