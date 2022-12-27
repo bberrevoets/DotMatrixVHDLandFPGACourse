@@ -34,6 +34,7 @@ begin
     );
 
   SEQUENCER_PROC : process
+    constant all_ones : std_logic_vector(din'range) := (others => '1');
     variable last_din : std_logic_vector(din'range);
     variable str : line;
   begin
@@ -42,23 +43,34 @@ begin
     wait for 10 * clock_period;
     rst <= '0';
 
-    wr <= '1';
-    din <= x"AA";
-    wait until rising_edge(clk);
-    last_din := din;
-    wr <= '0';
-    din <= x"00";
-    wait until rising_edge(clk);
+    loop
+      last_din := din;
 
-    assert dout = last_din
-    report "DUT out doesn't equal last input immediatly after write"
-      severity failure;
+      -- Write a new input to the DUT
+      wr <= '1';
+      wait until rising_edge(clk);
+      wr <= '0';
 
-    wait for 10 * clock_period;
+      -- Change din before the next test to check that the DUT samples at the right time
+      din <= std_logic_vector(unsigned(din) + 1);
+      wait until rising_edge(clk);
 
-    assert dout = last_din
-    report "DUT out doesn't equal last input after several clock preiods"
-      severity failure;
+      assert dout = last_din
+      report "DUT out doesn't equal last input immediatly after write"
+        severity failure;
+
+      wait for 10 * clock_period;
+
+      assert dout = last_din
+      report "DUT out doesn't equal last input after several clock preiods"
+        severity failure;
+
+      -- Exit the loop when we have tested all possible inputs
+      if dout = all_ones then
+        exit;
+      end if;
+
+    end loop;
 
     write(str, string'("Test: OK"));
     writeline(output, str);
