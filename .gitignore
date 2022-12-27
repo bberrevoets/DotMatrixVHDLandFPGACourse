@@ -1,10 +1,6 @@
 
 seg7/impl/seg7_Implmnt/
 
-seg7/impl/stdout.log
-
-seg7/impl/stdout.log.bak
-
 seg7/impl/synlog.tcl
 
 seg7/src/transcript
@@ -28,3 +24,11 @@ dot-matrix/src/dot_matrix/
 dot-matrix/src/dot_matrix_sim/
 
 dot-matrix/src/dot-matrix.cr.mti
+
+dot-matrix/impl/char_buf/char_buf_Implmnt/
+
+dot-matrix/impl/char_buf/synlog.tcl
+
+*.log
+*.bak
+*.prd
