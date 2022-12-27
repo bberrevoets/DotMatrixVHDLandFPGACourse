@@ -16,3 +16,9 @@ seg7/src/work/
 seg7/src/seg7.cr.mti
 
 seg7/src/seg7.mpf
+
+dot_matrix/src/dot_matrix/
+
+dot_matrix/src/dot_matrix_sim/
+
+dot_matrix/src/dot-matrix.cr.mti
