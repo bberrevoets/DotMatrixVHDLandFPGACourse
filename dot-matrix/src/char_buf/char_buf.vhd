@@ -16,4 +16,18 @@ architecture rtl of char_buf is
 
 begin
 
+  SAMPLER_PROC : process (clk)
+  begin
+    if rising_edge(clk) then
+      if rst = '1' then
+        dout <= (others => '0');
+
+      else
+        if wr = '1' then
+          dout <= din;
+        end if;
+      end if;
+    end if;
+  end process;
+
 end architecture;
